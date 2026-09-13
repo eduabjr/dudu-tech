@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face{font-family:'Space Grotesk';src:local('Space Grotesk');}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;overflow:hidden;background:#0a0e17;}
+  body{
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    position:relative;display:flex;flex-direction:column;justify-content:center;
+    padding:0 90px;color:#e7ecf5;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.45;}
+  .b1{width:520px;height:520px;background:#22d3ee;top:-180px;left:-120px;}
+  .b2{width:480px;height:480px;background:#8b5cf6;bottom:-200px;right:-100px;}
+  .grid{
+    position:absolute;inset:0;
+    background-image:linear-gradient(rgba(148,163,184,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.08) 1px,transparent 1px);
+    background-size:44px 44px;
+  }
+  .content{position:relative;z-index:2;}
+  .logo{display:flex;align-items:center;gap:16px;margin-bottom:44px;}
+  .mark{
+    width:64px;height:64px;border-radius:16px;
+    background:linear-gradient(135deg,#22d3ee,#8b5cf6);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;color:#04101c;
+  }
+  .brand{font-size:34px;font-weight:700;}
+  .brand .accent{color:#22d3ee;}
+  h1{font-size:58px;font-weight:700;line-height:1.15;letter-spacing:-0.02em;max-width:920px;}
+  h1 .grad{background:linear-gradient(135deg,#22d3ee,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  p{margin-top:26px;font-family:Inter,system-ui,sans-serif;font-size:26px;color:#8b96ab;max-width:820px;}
+  .tags{margin-top:40px;display:flex;gap:14px;}
+  .tags span{
+    font-family:'JetBrains Mono',monospace;font-size:18px;color:#8b96ab;
+    border:1px solid rgba(148,163,184,.28);border-radius:8px;padding:8px 16px;
+  }
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <div class="logo">
+      <span class="mark">&gt;_</span>
+      <span class="brand">Dudu<span class="accent">Tech</span></span>
+    </div>
+    <h1>Desenvolvimento de <span class="grad">software, sites e SEO</span> técnico</h1>
+    <p>Projetos completos — do planejamento ao lançamento.</p>
+    <div class="tags"><span>Next.js</span><span>TypeScript</span><span>React Native</span><span>SEO Técnico</span></div>
+  </div>
+</body>
+</html>

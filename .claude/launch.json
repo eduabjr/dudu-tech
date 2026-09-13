@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-edu-tech-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5544"],
+      "port": 5544
+    }
+  ]
+}
