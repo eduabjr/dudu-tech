@@ -147,9 +147,14 @@ nav{
   background:var(--bg-soft);border-right:1px solid var(--border);
   box-shadow:10px 0 30px rgba(0,0,0,.35);
   display:flex;flex-direction:column;gap:6px;padding:100px 28px 30px;
-  transform:translateX(-105%);transition:transform .3s ease;z-index:1001;overflow-y:auto;
+  transform:translateX(-105%);transition:transform .3s ease,visibility 0s linear .3s;
+  z-index:1001;overflow-y:auto;visibility:hidden;
 }
-.menu-checkbox:checked ~ nav{transform:translateX(0);}
+/* visibility:hidden quando fechado (mesmo padrão do site-estetica-main) —
+   sem isto, os links do menu continuam alcançáveis por Tab/leitor de tela
+   mesmo fora da tela, deslizados pelo transform. O delay na transição
+   garante que o "hidden" só entra DEPOIS da animação de fechar terminar. */
+.menu-checkbox:checked ~ nav{transform:translateX(0);visibility:visible;transition:transform .3s ease,visibility 0s linear 0s;}
 /* min-height:44px garante a área de toque mínima recomendada (WCAG 2.5.5 /
    Apple HIG) pros links do menu mobile — no desktop (media query abaixo)
    isso é desfeito, porque ali a navegação é por mouse, não por dedo. */
@@ -166,6 +171,7 @@ nav a:hover{color:var(--accent);background:rgba(34,211,238,.06);}
   nav{
     position:static;width:auto;height:auto;flex-direction:row;align-items:center;gap:32px;
     background:transparent;border:0;padding:0;transform:none;overflow:visible;
+    visibility:visible;transition:none;
   }
   nav a{padding:0;font-size:14px;min-height:0;}
   nav a:hover{background:transparent;}

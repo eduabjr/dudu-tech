@@ -216,11 +216,31 @@
     });
   }
 
-  /* ---------- Fecha o menu mobile ao clicar num link ---------- */
+  /* ---------- Menu mobile: trava o scroll do fundo enquanto aberto ----------
+     Mesmo comportamento do site-estetica-main: sem isto, dava pra rolar a
+     página por trás do menu deslizado, o que quebra a sensação de "painel
+     modal". O 'change' cobre quando o próprio ícone de hambúrguer abre/
+     fecha; like o clique num link e o pageshow (voltar pelo histórico do
+     navegador) mudam o .checked via JS, que não dispara 'change' sozinho,
+     então cada um reseta o overflow explicitamente também. */
   var menuCheckbox = document.getElementById("menuToggle");
+  if (menuCheckbox) {
+    menuCheckbox.checked = false;
+    document.body.style.overflow = "";
+    menuCheckbox.addEventListener("change", function () {
+      document.body.style.overflow = menuCheckbox.checked ? "hidden" : "";
+    });
+    window.addEventListener("pageshow", function () {
+      menuCheckbox.checked = false;
+      document.body.style.overflow = "";
+    });
+  }
+
+  /* ---------- Fecha o menu mobile ao clicar num link ---------- */
   document.querySelectorAll("nav a").forEach(function (link) {
     link.addEventListener("click", function () {
       if (menuCheckbox) menuCheckbox.checked = false;
+      document.body.style.overflow = "";
     });
   });
 
